@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM arm32v7/python:3.6
 
 VOLUME /conf
 VOLUME /certs
@@ -17,7 +17,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install
-RUN pip3 install .
+RUN pip3 install requests && pip3 install .
 
 # Start script
 RUN chmod +x /usr/src/app/dockerStart.sh
